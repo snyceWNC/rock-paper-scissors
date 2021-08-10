@@ -23,35 +23,67 @@ function computerPlay(){
 function roShamBo(playerSelection, ComputerSelection=computerPlay()){
     if (playerSelection.toLowerCase()=="rock"){
         if (ComputerSelection=="paper"){
-            return "You lose! Paper beats Rock."
+            cnt=1
+            win=0
         }
         else if (ComputerSelection=="scissors"){
-            return "You win! Rock beats Scissors."
+            win=1
+            cnt=1
         }
         else if (ComputerSelection=="rock"){
-            return "It's a tie! Rock matches rock."
+            win=0
+            cnt=0
         }
     }
     else if (playerSelection.toLowerCase()=="paper"){
         if (ComputerSelection=="scissors"){
-            return "You lose! Scissors beats paper."
+            cnt=1
+            win=0
         }
         else if (ComputerSelection=="rock"){
-            return "You win! Paper beats rock."
+            win=1
+            count=1
         }
         else if (ComputerSelection=="paper"){
-            return "It's a tie! Paper matches paper."
+            win=0
+            count=0
         }
     }
     else if (playerSelection.toLowerCase()=="scissors"){
         if (ComputerSelection=="rock"){
-            return "You lose! Rock beats scissors."
+            cnt=1
+            win=0
         }
         else if (ComputerSelection=="paper"){
-            return "You win! Scissors beat paper."
+            win=1
+            cnt=1
         }
         else if (ComputerSelection=="scissors"){
-            return "It's a tie! Scissors match scissors."
+            win=0
+            cnt=0
         }
+    }
+    else {
+        alert("Incorrect input: try \"Rock\", \"Paper\", or \"Scisssors\".")
+        cnt=0
+        win=0
+    }
+    return [cnt, win];
+}
+
+function game(){
+    fnl_cnt=0
+    fnl_win=0
+    while(fnl_cnt<5){
+        const player_input = prompt("Rock, Paper, or Scissors?");
+        cnt_win_array = roShamBo(player_input);
+        fnl_cnt+=cnt_win_array[0]
+        fnl_win+=cnt_win_array[1]
+    }
+    if (fnl_win > 3) {
+        return `You won! ${fnl_win} out of 5 won.`
+    }
+    else {
+        return `You lost! ${fnl_win} out of 5 won.`
     }
 }
