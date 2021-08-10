@@ -21,6 +21,7 @@ function computerPlay(){
 }
 
 function roShamBo(playerSelection, ComputerSelection=computerPlay()){
+    console.log(`Player hand: *${playerSelection}* | Computer hand: *${ComputerSelection}*`)
     if (playerSelection.toLowerCase()=="rock"){
         if (ComputerSelection=="paper"){
             cnt=1
